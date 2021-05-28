@@ -1,0 +1,40 @@
+C:\Users\File\source\repos\E.Z Subtitles\E.Z Subtitles\bin\Debug\E.Z Subtitles.exe.config
+C:\Users\File\source\repos\E.Z Subtitles\E.Z Subtitles\bin\Debug\E.Z Subtitles.exe
+C:\Users\File\source\repos\E.Z Subtitles\E.Z Subtitles\bin\Debug\E.Z Subtitles.pdb
+C:\Users\File\source\repos\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.csprojAssemblyReference.cache
+C:\Users\File\source\repos\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z_Subtitles.Form1.resources
+C:\Users\File\source\repos\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z_Subtitles.Properties.Resources.resources
+C:\Users\File\source\repos\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.csproj.GenerateResource.cache
+C:\Users\File\source\repos\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.csproj.CoreCompileInputs.cache
+C:\Users\File\source\repos\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.exe
+C:\Users\File\source\repos\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.pdb
+\\192.168.1.100\프로그래밍\E.Z Subtitles\E.Z Subtitles\bin\Debug\E.Z Subtitles.exe.config
+\\192.168.1.100\프로그래밍\E.Z Subtitles\E.Z Subtitles\bin\Debug\E.Z Subtitles.exe
+\\192.168.1.100\프로그래밍\E.Z Subtitles\E.Z Subtitles\bin\Debug\E.Z Subtitles.pdb
+\\192.168.1.100\프로그래밍\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.csprojAssemblyReference.cache
+\\192.168.1.100\프로그래밍\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z_Subtitles.Form1.resources
+\\192.168.1.100\프로그래밍\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z_Subtitles.Properties.Resources.resources
+\\192.168.1.100\프로그래밍\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.csproj.GenerateResource.cache
+\\192.168.1.100\프로그래밍\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.csproj.CoreCompileInputs.cache
+\\192.168.1.100\프로그래밍\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.exe
+\\192.168.1.100\프로그래밍\E.Z Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.pdb
+Z:\프로그래밍\자막매칭 프로그램\E.Z Subtitles\bin\Debug\E.Z Subtitles.exe.config
+Z:\프로그래밍\자막매칭 프로그램\E.Z Subtitles\bin\Debug\E.Z Subtitles.exe
+Z:\프로그래밍\자막매칭 프로그램\E.Z Subtitles\bin\Debug\E.Z Subtitles.pdb
+Z:\프로그래밍\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z Subtitles.csprojAssemblyReference.cache
+Z:\프로그래밍\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z_Subtitles.Form1.resources
+Z:\프로그래밍\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z_Subtitles.Properties.Resources.resources
+Z:\프로그래밍\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z Subtitles.csproj.GenerateResource.cache
+Z:\프로그래밍\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z Subtitles.csproj.CoreCompileInputs.cache
+Z:\프로그래밍\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z Subtitles.exe
+Z:\프로그래밍\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z Subtitles.pdb
+C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\bin\Debug\E.Z Subtitles.exe.config
+C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\bin\Debug\E.Z Subtitles.exe
+C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\bin\Debug\E.Z Subtitles.pdb
+C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z Subtitles.csprojAssemblyReference.cache
+C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z_Subtitles.Form1.resources
+C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z_Subtitles.Properties.Resources.resources
+C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z Subtitles.csproj.GenerateResource.cache
+C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z Subtitles.csproj.CoreCompileInputs.cache
+C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z Subtitles.exe
+C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\obj\Debug\E.Z Subtitles.pdb
