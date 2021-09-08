@@ -69,10 +69,9 @@
             this.columnHeader5});
             this.listView1.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(14, 15);
-            this.listView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listView1.Location = new System.Drawing.Point(12, 12);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(519, 329);
+            this.listView1.Size = new System.Drawing.Size(455, 264);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -100,10 +99,9 @@
             this.columnHeader6});
             this.listView2.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(565, 15);
-            this.listView2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listView2.Location = new System.Drawing.Point(494, 12);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(519, 329);
+            this.listView2.Size = new System.Drawing.Size(455, 264);
             this.listView2.TabIndex = 1;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -127,10 +125,9 @@
             // 
             this.button1.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(943, 395);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Location = new System.Drawing.Point(825, 316);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 61);
+            this.button1.Size = new System.Drawing.Size(119, 49);
             this.button1.TabIndex = 2;
             this.button1.Text = "Match";
             this.button1.UseVisualStyleBackColor = true;
@@ -139,10 +136,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(458, 352);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Location = new System.Drawing.Point(401, 282);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(34, 38);
+            this.button2.Size = new System.Drawing.Size(30, 30);
             this.button2.TabIndex = 3;
             this.button2.Text = "▲";
             this.button2.UseVisualStyleBackColor = true;
@@ -151,10 +147,9 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Location = new System.Drawing.Point(499, 352);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button3.Location = new System.Drawing.Point(437, 282);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(34, 38);
+            this.button3.Size = new System.Drawing.Size(30, 30);
             this.button3.TabIndex = 4;
             this.button3.Text = "▼";
             this.button3.UseVisualStyleBackColor = true;
@@ -163,10 +158,9 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button5.Location = new System.Drawing.Point(1045, 350);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button5.Location = new System.Drawing.Point(914, 280);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(34, 38);
+            this.button5.Size = new System.Drawing.Size(30, 30);
             this.button5.TabIndex = 6;
             this.button5.Text = "▼";
             this.button5.UseVisualStyleBackColor = true;
@@ -175,10 +169,9 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button4.Location = new System.Drawing.Point(1003, 350);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button4.Location = new System.Drawing.Point(878, 280);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(34, 38);
+            this.button4.Size = new System.Drawing.Size(30, 30);
             this.button4.TabIndex = 5;
             this.button4.Text = "▲";
             this.button4.UseVisualStyleBackColor = true;
@@ -187,10 +180,9 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button6.Location = new System.Drawing.Point(559, 352);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button6.Location = new System.Drawing.Point(489, 282);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(66, 29);
+            this.button6.Size = new System.Drawing.Size(58, 23);
             this.button6.TabIndex = 7;
             this.button6.Text = "C";
             this.button6.UseVisualStyleBackColor = true;
@@ -199,10 +191,9 @@
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button7.Location = new System.Drawing.Point(14, 352);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button7.Location = new System.Drawing.Point(12, 282);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(66, 29);
+            this.button7.Size = new System.Drawing.Size(58, 23);
             this.button7.TabIndex = 8;
             this.button7.Text = "C";
             this.button7.UseVisualStyleBackColor = true;
@@ -211,10 +202,9 @@
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button8.Location = new System.Drawing.Point(806, 395);
-            this.button8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button8.Location = new System.Drawing.Point(705, 316);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(130, 61);
+            this.button8.Size = new System.Drawing.Size(114, 49);
             this.button8.TabIndex = 9;
             this.button8.Text = "All Clear";
             this.button8.UseVisualStyleBackColor = true;
@@ -225,19 +215,20 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label1.Location = new System.Drawing.Point(736, 461);
+            this.label1.Location = new System.Drawing.Point(672, 382);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(343, 17);
+            this.label1.Size = new System.Drawing.Size(272, 14);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Copyright 2020. KRFile(pgh268400@naver.com)";
+            this.label1.Text = "Copyright 2021. KRFile(pgh268400@naver.com)";
             // 
             // rvideo
             // 
             this.rvideo.AutoSize = true;
             this.rvideo.Checked = true;
-            this.rvideo.Location = new System.Drawing.Point(12, 3);
+            this.rvideo.Location = new System.Drawing.Point(10, 2);
+            this.rvideo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rvideo.Name = "rvideo";
-            this.rvideo.Size = new System.Drawing.Size(85, 21);
+            this.rvideo.Size = new System.Drawing.Size(69, 18);
             this.rvideo.TabIndex = 11;
             this.rvideo.TabStop = true;
             this.rvideo.Text = "영상파일";
@@ -247,9 +238,10 @@
             // rsmi
             // 
             this.rsmi.AutoSize = true;
-            this.rsmi.Location = new System.Drawing.Point(106, 3);
+            this.rsmi.Location = new System.Drawing.Point(93, 2);
+            this.rsmi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rsmi.Name = "rsmi";
-            this.rsmi.Size = new System.Drawing.Size(85, 21);
+            this.rsmi.Size = new System.Drawing.Size(69, 18);
             this.rsmi.TabIndex = 12;
             this.rsmi.Text = "자막파일";
             this.rsmi.UseVisualStyleBackColor = true;
@@ -259,27 +251,30 @@
             // 
             this.panel1.Controls.Add(this.rvideo);
             this.panel1.Controls.Add(this.rsmi);
-            this.panel1.Location = new System.Drawing.Point(137, 59);
+            this.panel1.Location = new System.Drawing.Point(120, 47);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(239, 24);
+            this.panel1.Size = new System.Drawing.Size(209, 19);
             this.panel1.TabIndex = 13;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.rcopy);
             this.panel2.Controls.Add(this.rmove);
-            this.panel2.Location = new System.Drawing.Point(137, 24);
+            this.panel2.Location = new System.Drawing.Point(120, 19);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(239, 27);
+            this.panel2.Size = new System.Drawing.Size(209, 22);
             this.panel2.TabIndex = 14;
             // 
             // rcopy
             // 
             this.rcopy.AutoSize = true;
             this.rcopy.Checked = true;
-            this.rcopy.Location = new System.Drawing.Point(12, 3);
+            this.rcopy.Location = new System.Drawing.Point(10, 2);
+            this.rcopy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rcopy.Name = "rcopy";
-            this.rcopy.Size = new System.Drawing.Size(57, 21);
+            this.rcopy.Size = new System.Drawing.Size(47, 18);
             this.rcopy.TabIndex = 11;
             this.rcopy.TabStop = true;
             this.rcopy.Text = "복사";
@@ -289,9 +284,10 @@
             // rmove
             // 
             this.rmove.AutoSize = true;
-            this.rmove.Location = new System.Drawing.Point(106, 2);
+            this.rmove.Location = new System.Drawing.Point(93, 2);
+            this.rmove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rmove.Name = "rmove";
-            this.rmove.Size = new System.Drawing.Size(57, 21);
+            this.rmove.Size = new System.Drawing.Size(47, 18);
             this.rmove.TabIndex = 12;
             this.rmove.Text = "이동";
             this.rmove.UseVisualStyleBackColor = true;
@@ -300,18 +296,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 29);
+            this.label2.Location = new System.Drawing.Point(11, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 17);
+            this.label2.Size = new System.Drawing.Size(79, 14);
             this.label2.TabIndex = 15;
             this.label2.Text = "자막 이동 방식";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 62);
+            this.label3.Location = new System.Drawing.Point(11, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 17);
+            this.label3.Size = new System.Drawing.Size(87, 14);
             this.label3.TabIndex = 16;
             this.label3.Text = "따라갈 파일이름";
             // 
@@ -322,9 +318,11 @@
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox1.Location = new System.Drawing.Point(14, 395);
+            this.groupBox1.Location = new System.Drawing.Point(12, 316);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(405, 100);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(354, 80);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "설정";
@@ -332,9 +330,10 @@
             // button9
             // 
             this.button9.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button9.Location = new System.Drawing.Point(670, 395);
+            this.button9.Location = new System.Drawing.Point(586, 316);
+            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(130, 63);
+            this.button9.Size = new System.Drawing.Size(114, 50);
             this.button9.TabIndex = 18;
             this.button9.Text = "How to?";
             this.button9.UseVisualStyleBackColor = true;
@@ -342,9 +341,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 505);
+            this.ClientSize = new System.Drawing.Size(961, 404);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -360,10 +359,9 @@
             this.Controls.Add(this.listView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "E.Z Subtitles v2";
+            this.Text = "E.Z Subtitles v3";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -351,50 +351,55 @@ namespace E.Z_Subtitles
 
             if (MessageBox.Show("작업을 진행하시겠습니까?", "알림", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                for (int i = 0; i < listView1.Items.Count; i++)
+
+                try
                 {
-                    if (rvideo.Checked == true) //따라갈 파일 이름 : 영상
+                    for (int i = 0; i < listView1.Items.Count; i++)
                     {
-                        string video_path = listView1.Items[i].SubItems[2].Text;
-                        string smi_path = listView2.Items[i].SubItems[2].Text;
-                        //비디오 파일 경로\비디오파일이름\.자막확장자
-                        string copy_path = Path.GetDirectoryName(video_path) + "\\" + Path.GetFileNameWithoutExtension(video_path) + Path.GetExtension(smi_path);
-                        //MessageBox.Show(String.Format("{0} {1}", smi_path, copy_path));
-
-                        if (rcopy.Checked == true)
+                        if (rvideo.Checked == true) //따라갈 파일 이름 : 영상
                         {
-                            if (smi_path == copy_path) File.Move(smi_path, copy_path); //동일경로면 Move로 옮김
-                            else File.Copy(smi_path, copy_path); //자막 복사 모드
+                            string video_path = listView1.Items[i].SubItems[2].Text;
+                            string smi_path = listView2.Items[i].SubItems[2].Text;
+                            //비디오 파일 경로\비디오파일이름\.자막확장자
+                            string copy_path = Path.GetDirectoryName(video_path) + "\\" + Path.GetFileNameWithoutExtension(video_path) + Path.GetExtension(smi_path);
+                            //MessageBox.Show(String.Format("{0} {1}", smi_path, copy_path));
 
+                            if (rcopy.Checked == true)
+                            {
+                                if (smi_path == copy_path) File.Move(smi_path, copy_path); //동일경로면 Move로 옮김
+                                else File.Copy(smi_path, copy_path); //자막 복사 모드
+
+                            }
+                            else if (rmove.Checked == true) File.Move(smi_path, copy_path); //자막 이동 모드
                         }
-                        else if (rmove.Checked == true) File.Move(smi_path, copy_path); //자막 이동 모드
-                    }
-                    else if (rsmi.Checked == true) //따라갈 파일 이름 : 자막
-                    {
-                        string video_path = listView1.Items[i].SubItems[2].Text;
-                        string smi_path = listView2.Items[i].SubItems[2].Text;
-                        //비디오 파일 경로\자막파일이름\.자막확장자
-                        string copy_path = Path.GetDirectoryName(video_path) + "\\" + Path.GetFileNameWithoutExtension(smi_path) + Path.GetExtension(smi_path);
-                        //MessageBox.Show(String.Format("{0} {1}", smi_path, copy_path));
-
-                        if (rcopy.Checked == true)
+                        else if (rsmi.Checked == true) //따라갈 파일 이름 : 자막
                         {
-                            if (smi_path == copy_path) File.Move(smi_path, copy_path); //동일경로면 Move로 옮김
-                            else File.Copy(smi_path, copy_path); //자막 복사 모드
+                            string video_path = listView1.Items[i].SubItems[2].Text;
+                            string smi_path = listView2.Items[i].SubItems[2].Text;
+                            //비디오 파일 경로\자막파일이름\.자막확장자
+                            string copy_path = Path.GetDirectoryName(video_path) + "\\" + Path.GetFileNameWithoutExtension(smi_path) + Path.GetExtension(smi_path);
+                            //MessageBox.Show(String.Format("{0} {1}", smi_path, copy_path));
 
+                            if (rcopy.Checked == true)
+                            {
+                                if (smi_path == copy_path) File.Move(smi_path, copy_path); //동일경로면 Move로 옮김
+                                else File.Copy(smi_path, copy_path); //자막 복사 모드
+
+                            }
+                            else if (rmove.Checked == true) File.Move(smi_path, copy_path); //자막 이동 모드
+
+                            //비디오 파일경로\자막파일이름\.비디오확장자
+                            string change_video_path = Path.GetDirectoryName(video_path) + "\\" + Path.GetFileNameWithoutExtension(smi_path) + Path.GetExtension(video_path);
+                            File.Move(video_path, change_video_path); //영상파일 이름 -> 자막파일 이름으로 변경
                         }
-                        else if (rmove.Checked == true) File.Move(smi_path, copy_path); //자막 이동 모드
 
-                        //비디오 파일경로\자막파일이름\.비디오확장자
-                        string change_video_path = Path.GetDirectoryName(video_path) + "\\" + Path.GetFileNameWithoutExtension(smi_path) + Path.GetExtension(video_path);
-                        File.Move(video_path, change_video_path); //영상파일 이름 -> 자막파일 이름으로 변경
+
+
                     }
-
-
-
+                    MessageBox.Show("작업이 완료되었습니다 :)", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
                 }
-                MessageBox.Show("작업이 완료되었습니다 :)", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
 
 
