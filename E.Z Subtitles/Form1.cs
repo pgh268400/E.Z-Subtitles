@@ -14,7 +14,7 @@ namespace E.Z_Subtitles
 
 
         //INI R/W
-        private void iniWrite()
+        private void ini_write()
         {
             string f_name = "";
             string match_style = "";
@@ -30,7 +30,7 @@ namespace E.Z_Subtitles
             ini.Save("Settings.ini");
         }
 
-        private void iniRead()
+        private void ini_read()
         {
             IniFile ini = new IniFile();
             if (File.Exists("Settings.ini")) ini.Load("Settings.ini");
@@ -46,7 +46,7 @@ namespace E.Z_Subtitles
         //폼로드 이벤트 추가
         private void Form1_Load(object sender, EventArgs e)
         {
-            iniRead(); //Get InI Settings
+            ini_read(); //Get InI Settings
             listView1.Alignment = ListViewAlignment.Default;
             listView2.Alignment = ListViewAlignment.Default;
 
@@ -91,87 +91,13 @@ namespace E.Z_Subtitles
         }
 
 
-        private Boolean Subtitle_Check_Ext(string ext) //자막 확장자 검사
-        {
-            string[] sub_ext = { ".psb", ".srt", ".ssa", ".ass", ".sub", ".sami", ".smi", ".smil", ".usf", ".vtt" };
-            foreach(string c in sub_ext)
-            {
-                if (ext.ToLower() == c) return true; //자막 True
-            }
-            return false; //자막 False
-        }
-
-        //드래그 드롭 파일 추가 Core
-        private void File_Add(string[] files, ListView lv, Boolean isSMI)
-        {
-
-            Array.Sort(files, NatSort.CompareNatural); //Natural Sort
-            if (files.Length >= 1) //1개 이상이면 
-            {
-                foreach (string file_path in files)
-                {
-                    bool directory_check = File.GetAttributes(file_path).HasFlag(FileAttributes.Directory);
-
-                    if (directory_check == false) //파일만 추가함.
-                    {
-                        string filename = Path.GetFileNameWithoutExtension(file_path);
-                        string path = Path.GetExtension(file_path);
-
-                        if (isSMI == true & Subtitle_Check_Ext(path) == true)
-                        {
-                            ListViewItem item = new ListViewItem(filename);
-                            item.SubItems.Add(path);
-                            item.SubItems.Add(file_path);
-                            lv.Items.Add(item);
-                        }else if (isSMI == false & Subtitle_Check_Ext(path) == false)
-                        {
-                            ListViewItem item = new ListViewItem(filename);
-                            item.SubItems.Add(path);
-                            item.SubItems.Add(file_path);
-                            lv.Items.Add(item);
-                        }
-                    }
-                        
-                    else
-                    {
-                        string[] directory_files = Directory.GetFiles(file_path); //디렉토리 파일 로드
-                        Array.Sort(directory_files, NatSort.CompareNatural); //Natural Sort
-                        foreach (string d_file_path in directory_files)
-                        {
-
-                            string filename = Path.GetFileNameWithoutExtension(d_file_path);
-                            string path = Path.GetExtension(d_file_path);
-                            if (isSMI == true & Subtitle_Check_Ext(path) == true)
-                            {
-                                ListViewItem item = new ListViewItem(filename);
-                                item.SubItems.Add(path);
-                                item.SubItems.Add(d_file_path);
-                                lv.Items.Add(item);
-                            }
-                            else if (isSMI == false & Subtitle_Check_Ext(path) == false)
-                            {
-                                ListViewItem item = new ListViewItem(filename);
-                                item.SubItems.Add(path);
-                                item.SubItems.Add(file_path);
-                                lv.Items.Add(item);
-                            }
-                        }
-
-                    }
-                }
-                if (lv.Items.Count > 0)
-                {
-                    lv.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent); //Column Auto Width
-                }
-            }
-        }
 
         private void ListView1_DragDrop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 string[] files = (string[])e.Data.GetData(DataFormats.FileDrop); //데이터를 가져오고 string[] 으로 변환
-                File_Add(files, listView1, false);
+                SubTitle.file_add(files, listView1, false);
             }
 
         }
@@ -183,7 +109,7 @@ namespace E.Z_Subtitles
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 string[] files = (string[])e.Data.GetData(DataFormats.FileDrop); //데이터를 가져오고 string[] 으로 변환
-                File_Add(files, listView2, true);
+                SubTitle.file_add(files, listView2, true);
 
             }
         }
@@ -224,49 +150,9 @@ namespace E.Z_Subtitles
 
                 try
                 {
-                    for (int i = 0; i < listView1.Items.Count; i++)
-                    {
-                        if (rvideo.Checked == true) //따라갈 파일 이름 : 영상
-                        {
-                            string video_path = listView1.Items[i].SubItems[2].Text;
-                            string smi_path = listView2.Items[i].SubItems[2].Text;
-                            //비디오 파일 경로\비디오파일이름\.자막확장자
-                            string copy_path = Path.GetDirectoryName(video_path) + "\\" + Path.GetFileNameWithoutExtension(video_path) + Path.GetExtension(smi_path);
-                            //MessageBox.Show(String.Format("{0} {1}", smi_path, copy_path));
-
-                            if (rcopy.Checked == true)
-                            {
-                                if (smi_path == copy_path) File.Move(smi_path, copy_path); //동일경로면 Move로 옮김
-                                else File.Copy(smi_path, copy_path); //자막 복사 모드
-
-                            }
-                            else if (rmove.Checked == true) File.Move(smi_path, copy_path); //자막 이동 모드
-                        }
-                        else if (rsmi.Checked == true) //따라갈 파일 이름 : 자막
-                        {
-                            string video_path = listView1.Items[i].SubItems[2].Text;
-                            string smi_path = listView2.Items[i].SubItems[2].Text;
-                            //비디오 파일 경로\자막파일이름\.자막확장자
-                            string copy_path = Path.GetDirectoryName(video_path) + "\\" + Path.GetFileNameWithoutExtension(smi_path) + Path.GetExtension(smi_path);
-                            //MessageBox.Show(String.Format("{0} {1}", smi_path, copy_path));
-
-                            if (rcopy.Checked == true)
-                            {
-                                if (smi_path == copy_path) File.Move(smi_path, copy_path); //동일경로면 Move로 옮김
-                                else File.Copy(smi_path, copy_path); //자막 복사 모드
-
-                            }
-                            else if (rmove.Checked == true) File.Move(smi_path, copy_path); //자막 이동 모드
-
-                            //비디오 파일경로\자막파일이름\.비디오확장자
-                            string change_video_path = Path.GetDirectoryName(video_path) + "\\" + Path.GetFileNameWithoutExtension(smi_path) + Path.GetExtension(video_path);
-                            File.Move(video_path, change_video_path); //영상파일 이름 -> 자막파일 이름으로 변경
-                        }
-
-
-
-                    }
+                    SubTitle.match(listView1, listView2, rvideo.Checked, rcopy.Checked);
                     MessageBox.Show("작업이 완료되었습니다 :)", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 } catch (Exception ex) {
                     MessageBox.Show(ex.Message);
                 }
@@ -302,7 +188,6 @@ namespace E.Z_Subtitles
                     int index = lvi.Index + 1;
                     listView1.Items.RemoveAt(lvi.Index);
                     listView1.Items.Insert(index, lvi);
-
                 }
             }
         }
@@ -341,22 +226,22 @@ namespace E.Z_Subtitles
         //체크박스 누를시 ini 자동 작성
         private void Rvideo_CheckedChanged(object sender, EventArgs e)
         {
-            iniWrite();
+            ini_write();
         }
 
         private void Rsmi_CheckedChanged(object sender, EventArgs e)
         {
-            iniWrite();
+            ini_write();
         }
 
         private void Rcopy_CheckedChanged(object sender, EventArgs e)
         {
-            iniWrite();
+            ini_write();
         }
 
         private void Rmove_CheckedChanged(object sender, EventArgs e)
         {
-            iniWrite();
+            ini_write();
         }
 
         private void Button9_Click(object sender, EventArgs e)
