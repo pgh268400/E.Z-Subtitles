@@ -41,3 +41,14 @@ C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\obj\Release\E.Z S
 C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\obj\Release\E.Z Subtitles.csproj.CoreCompileInputs.cache
 C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\obj\Release\E.Z Subtitles.exe
 C:\Users\pgh26\Desktop\자막매칭 프로그램\E.Z Subtitles\obj\Release\E.Z Subtitles.pdb
+C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\bin\Release\E.Z Subtitles.exe.config
+C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\bin\Release\E.Z Subtitles.exe
+C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\bin\Release\E.Z Subtitles.pdb
+C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Release\E.Z Subtitles.csproj.AssemblyReference.cache
+C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Release\E.Z Subtitles.csproj.SuggestedBindingRedirects.cache
+C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Release\E.Z_Subtitles.MainForm.resources
+C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Release\E.Z_Subtitles.Properties.Resources.resources
+C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Release\E.Z Subtitles.csproj.GenerateResource.cache
+C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Release\E.Z Subtitles.csproj.CoreCompileInputs.cache
+C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Release\E.Z Subtitles.exe
+C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Release\E.Z Subtitles.pdb
