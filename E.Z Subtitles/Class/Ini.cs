@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-public struct IniValue
+public struct InIValue
 {
     private static bool TryParseInt(string text, out int value)
     {
@@ -38,7 +38,7 @@ public struct IniValue
 
     public string Value;
 
-    public IniValue(object value)
+    public InIValue(object value)
     {
         var formattable = value as IFormattable;
         if (formattable != null)
@@ -51,7 +51,7 @@ public struct IniValue
         }
     }
 
-    public IniValue(string value)
+    public InIValue(string value)
     {
         Value = value;
     }
@@ -169,58 +169,58 @@ public struct IniValue
         return Value;
     }
 
-    public static implicit operator IniValue(byte o)
+    public static implicit operator InIValue(byte o)
     {
-        return new IniValue(o);
+        return new InIValue(o);
     }
 
-    public static implicit operator IniValue(short o)
+    public static implicit operator InIValue(short o)
     {
-        return new IniValue(o);
+        return new InIValue(o);
     }
 
-    public static implicit operator IniValue(int o)
+    public static implicit operator InIValue(int o)
     {
-        return new IniValue(o);
+        return new InIValue(o);
     }
 
-    public static implicit operator IniValue(sbyte o)
+    public static implicit operator InIValue(sbyte o)
     {
-        return new IniValue(o);
+        return new InIValue(o);
     }
 
-    public static implicit operator IniValue(ushort o)
+    public static implicit operator InIValue(ushort o)
     {
-        return new IniValue(o);
+        return new InIValue(o);
     }
 
-    public static implicit operator IniValue(uint o)
+    public static implicit operator InIValue(uint o)
     {
-        return new IniValue(o);
+        return new InIValue(o);
     }
 
-    public static implicit operator IniValue(float o)
+    public static implicit operator InIValue(float o)
     {
-        return new IniValue(o);
+        return new InIValue(o);
     }
 
-    public static implicit operator IniValue(double o)
+    public static implicit operator InIValue(double o)
     {
-        return new IniValue(o);
+        return new InIValue(o);
     }
 
-    public static implicit operator IniValue(bool o)
+    public static implicit operator InIValue(bool o)
     {
-        return new IniValue(o);
+        return new InIValue(o);
     }
 
-    public static implicit operator IniValue(string o)
+    public static implicit operator InIValue(string o)
     {
-        return new IniValue(o);
+        return new InIValue(o);
     }
 
-    private static readonly IniValue _default = new IniValue();
-    public static IniValue Default { get { return _default; } }
+    private static readonly InIValue _default = new InIValue();
+    public static InIValue Default { get { return _default; } }
 }
 
 public class IniFile : IEnumerable<KeyValuePair<string, IniSection>>, IDictionary<string, IniSection>
@@ -316,7 +316,7 @@ public class IniFile : IEnumerable<KeyValuePair<string, IniSection>>, IDictionar
                     else if (section != null && trimStart[0] != ';')
                     {
                         string key;
-                        IniValue val;
+                        InIValue val;
 
                         if (LoadValue(line, out key, out val))
                         {
@@ -328,7 +328,7 @@ public class IniFile : IEnumerable<KeyValuePair<string, IniSection>>, IDictionar
         }
     }
 
-    private bool LoadValue(string line, out string key, out IniValue val)
+    private bool LoadValue(string line, out string key, out InIValue val)
     {
         var assignIndex = line.IndexOf('=');
         if (assignIndex <= 0)
@@ -341,7 +341,7 @@ public class IniFile : IEnumerable<KeyValuePair<string, IniSection>>, IDictionar
         key = line.Substring(0, assignIndex).Trim();
         var value = line.Substring(assignIndex + 1);
 
-        val = new IniValue(value);
+        val = new InIValue(value);
         return true;
     }
 
@@ -365,7 +365,7 @@ public class IniFile : IEnumerable<KeyValuePair<string, IniSection>>, IDictionar
         return sections.Remove(section);
     }
 
-    public IniSection Add(string section, Dictionary<string, IniValue> values, bool ordered = false)
+    public IniSection Add(string section, Dictionary<string, InIValue> values, bool ordered = false)
     {
         return Add(section, new IniSection(values, StringComparer) { Ordered = ordered });
     }
@@ -521,9 +521,9 @@ public class IniFile : IEnumerable<KeyValuePair<string, IniSection>>, IDictionar
     }
 }
 
-public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictionary<string, IniValue>
+public class IniSection : IEnumerable<KeyValuePair<string, InIValue>>, IDictionary<string, InIValue>
 {
-    private Dictionary<string, IniValue> values;
+    private Dictionary<string, InIValue> values;
 
     #region Ordered
     private List<string> orderedKeys;
@@ -622,7 +622,7 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
         return -1;
     }
 
-    public void Insert(int index, string key, IniValue value)
+    public void Insert(int index, string key, InIValue value)
     {
         if (!Ordered)
         {
@@ -636,7 +636,7 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
         orderedKeys.Insert(index, key);
     }
 
-    public void InsertRange(int index, IEnumerable<KeyValuePair<string, IniValue>> collection)
+    public void InsertRange(int index, IEnumerable<KeyValuePair<string, InIValue>> collection)
     {
         if (!Ordered)
         {
@@ -726,13 +726,13 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
         orderedKeys.Reverse(index, count);
     }
 
-    public ICollection<IniValue> GetOrderedValues()
+    public ICollection<InIValue> GetOrderedValues()
     {
         if (!Ordered)
         {
             throw new InvalidOperationException("Cannot call GetOrderedValues() on IniSection: section was not ordered.");
         }
-        var list = new List<IniValue>();
+        var list = new List<InIValue>();
         for (int i = 0; i < orderedKeys.Count; i++)
         {
             list.Add(values[orderedKeys[i]]);
@@ -740,7 +740,7 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
         return list;
     }
 
-    public IniValue this[int index]
+    public InIValue this[int index]
     {
         get
         {
@@ -792,17 +792,17 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
 
     public IniSection(IEqualityComparer<string> stringComparer)
     {
-        this.values = new Dictionary<string, IniValue>(stringComparer);
+        this.values = new Dictionary<string, InIValue>(stringComparer);
     }
 
-    public IniSection(Dictionary<string, IniValue> values)
+    public IniSection(Dictionary<string, InIValue> values)
         : this(values, IniFile.DefaultComparer)
     {
     }
 
-    public IniSection(Dictionary<string, IniValue> values, IEqualityComparer<string> stringComparer)
+    public IniSection(Dictionary<string, InIValue> values, IEqualityComparer<string> stringComparer)
     {
-        this.values = new Dictionary<string, IniValue>(values, stringComparer);
+        this.values = new Dictionary<string, InIValue>(values, stringComparer);
     }
 
     public IniSection(IniSection values)
@@ -812,10 +812,10 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
 
     public IniSection(IniSection values, IEqualityComparer<string> stringComparer)
     {
-        this.values = new Dictionary<string, IniValue>(values.values, stringComparer);
+        this.values = new Dictionary<string, InIValue>(values.values, stringComparer);
     }
 
-    public void Add(string key, IniValue value)
+    public void Add(string key, InIValue value)
     {
         values.Add(key, value);
         if (Ordered)
@@ -854,7 +854,7 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
         return ret;
     }
 
-    public bool TryGetValue(string key, out IniValue value)
+    public bool TryGetValue(string key, out InIValue value)
     {
         return values.TryGetValue(key, out value);
     }
@@ -862,7 +862,7 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
     /// <summary>
     /// Returns the values in this IniSection. These values are always out of order. To get ordered values from an IniSection call GetOrderedValues instead.
     /// </summary>
-    public ICollection<IniValue> Values
+    public ICollection<InIValue> Values
     {
         get
         {
@@ -870,9 +870,9 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
         }
     }
 
-    void ICollection<KeyValuePair<string, IniValue>>.Add(KeyValuePair<string, IniValue> item)
+    void ICollection<KeyValuePair<string, InIValue>>.Add(KeyValuePair<string, InIValue> item)
     {
-        ((IDictionary<string, IniValue>)values).Add(item);
+        ((IDictionary<string, InIValue>)values).Add(item);
         if (Ordered)
         {
             orderedKeys.Add(item.Key);
@@ -888,14 +888,14 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
         }
     }
 
-    bool ICollection<KeyValuePair<string, IniValue>>.Contains(KeyValuePair<string, IniValue> item)
+    bool ICollection<KeyValuePair<string, InIValue>>.Contains(KeyValuePair<string, InIValue> item)
     {
-        return ((IDictionary<string, IniValue>)values).Contains(item);
+        return ((IDictionary<string, InIValue>)values).Contains(item);
     }
 
-    void ICollection<KeyValuePair<string, IniValue>>.CopyTo(KeyValuePair<string, IniValue>[] array, int arrayIndex)
+    void ICollection<KeyValuePair<string, InIValue>>.CopyTo(KeyValuePair<string, InIValue>[] array, int arrayIndex)
     {
-        ((IDictionary<string, IniValue>)values).CopyTo(array, arrayIndex);
+        ((IDictionary<string, InIValue>)values).CopyTo(array, arrayIndex);
     }
 
     public int Count
@@ -903,14 +903,14 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
         get { return values.Count; }
     }
 
-    bool ICollection<KeyValuePair<string, IniValue>>.IsReadOnly
+    bool ICollection<KeyValuePair<string, InIValue>>.IsReadOnly
     {
-        get { return ((IDictionary<string, IniValue>)values).IsReadOnly; }
+        get { return ((IDictionary<string, InIValue>)values).IsReadOnly; }
     }
 
-    bool ICollection<KeyValuePair<string, IniValue>>.Remove(KeyValuePair<string, IniValue> item)
+    bool ICollection<KeyValuePair<string, InIValue>>.Remove(KeyValuePair<string, InIValue> item)
     {
-        var ret = ((IDictionary<string, IniValue>)values).Remove(item);
+        var ret = ((IDictionary<string, InIValue>)values).Remove(item);
         if (Ordered && ret)
         {
             for (int i = 0; i < orderedKeys.Count; i++)
@@ -925,7 +925,7 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
         return ret;
     }
 
-    public IEnumerator<KeyValuePair<string, IniValue>> GetEnumerator()
+    public IEnumerator<KeyValuePair<string, InIValue>> GetEnumerator()
     {
         if (Ordered)
         {
@@ -937,11 +937,11 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
         }
     }
 
-    private IEnumerator<KeyValuePair<string, IniValue>> GetOrderedEnumerator()
+    private IEnumerator<KeyValuePair<string, InIValue>> GetOrderedEnumerator()
     {
         for (int i = 0; i < orderedKeys.Count; i++)
         {
-            yield return new KeyValuePair<string, IniValue>(orderedKeys[i], values[orderedKeys[i]]);
+            yield return new KeyValuePair<string, InIValue>(orderedKeys[i], values[orderedKeys[i]]);
         }
     }
 
@@ -952,16 +952,16 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
 
     public IEqualityComparer<string> Comparer { get { return values.Comparer; } }
 
-    public IniValue this[string name]
+    public InIValue this[string name]
     {
         get
         {
-            IniValue val;
+            InIValue val;
             if (values.TryGetValue(name, out val))
             {
                 return val;
             }
-            return IniValue.Default;
+            return InIValue.Default;
         }
         set
         {
@@ -973,12 +973,12 @@ public class IniSection : IEnumerable<KeyValuePair<string, IniValue>>, IDictiona
         }
     }
 
-    public static implicit operator IniSection(Dictionary<string, IniValue> dict)
+    public static implicit operator IniSection(Dictionary<string, InIValue> dict)
     {
         return new IniSection(dict);
     }
 
-    public static explicit operator Dictionary<string, IniValue>(IniSection section)
+    public static explicit operator Dictionary<string, InIValue>(IniSection section)
     {
         return section.values;
     }

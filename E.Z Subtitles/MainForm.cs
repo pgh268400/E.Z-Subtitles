@@ -1,5 +1,9 @@
-﻿using System;
+﻿using E.Z_Subtitles.Class;
+using E.Z_Subtitles.Enum;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -11,38 +15,86 @@ namespace E.Z_Subtitles
         {
             // 창 모니터 정 중앙에 표시되도록 설정
             this.StartPosition = FormStartPosition.CenterScreen;
-
             InitializeComponent();
         }
 
         // INI R/W
         private void ini_write()
         {
-            string f_name = "";
-            string match_style = "";
+            // 반드시 enum 값을 초기화 해줘야 하기 때문에 nullable한 enum을 사용해 null로 초기화.
+            // 초기화를 하지 않으면 아래 GetDescription() 의 확장 메서드 컴파일이 되지 않는다.
+            // 따라갈 파일 이름 : 영상 파일, 자막 파일
+            FollowMethod? follow_file_name = null;
 
-            if (rvideo.Checked == true) f_name = "video";
-            else if (rsmi.Checked == true) f_name = "smi";
-            if (rcopy.Checked == true) match_style = "copy";
-            else if (rmove.Checked == true) match_style = "move";
+            // 매칭 방법 : 복사, 이동
+            MatchStyle? match_style = null;
+
+            // 라디오 버튼 체크에 따라 enum 값 설정
+            // 무조건 if 또는 else if 에 걸려 enum이 초기화 되지 않는 경우는 없다.
+            if (rvideo.Checked) follow_file_name = FollowMethod.Video;
+            else if (rsmi.Checked) follow_file_name = FollowMethod.Subtitle;
+            if (rcopy.Checked) match_style = MatchStyle.Copy;
+            else if (rmove.Checked) match_style = MatchStyle.Move;
 
             IniFile ini = new IniFile();
-            ini["Settings"]["f_name"] = f_name;
-            ini["Settings"]["match_style"] = match_style;
-            ini.Save("Settings.ini");
+
+            // enum의 descripion을 가져와서 ini 파일의 value로써 저장한다.
+            string follow_desc = follow_file_name.GetDescription();
+            string match_desc = match_style.GetDescription();
+
+            string key_main = InIKey.TopSection.GetDescription();
+            string key_follow = InIKey.FollowMethod.GetDescription();
+            string key_match = InIKey.MatchStyle.GetDescription();
+
+            ini[key_main][key_follow] = follow_file_name.GetDescription();
+            ini[key_main][key_match] = match_style.GetDescription();
+            ini.Save(INI.file_name);
         }
 
         private void ini_read()
         {
-            IniFile ini = new IniFile();
-            if (File.Exists("Settings.ini")) ini.Load("Settings.ini");
-            string f_name = ini["Settings"]["f_name"].ToString();
-            string match_style = ini["Settings"]["match_style"].ToString();
+            // enum의 description을 가져오기 위해 string 변수 선언
+            string follow_video = FollowMethod.Video.GetDescription();
+            string follow_smi = FollowMethod.Subtitle.GetDescription();
+            string copy = MatchStyle.Copy.GetDescription();
+            string move = MatchStyle.Move.GetDescription();
 
-            if (f_name == "video") rvideo.Checked = true;
-            else if (f_name == "smi") rsmi.Checked = true;
-            if (match_style == "copy") rcopy.Checked = true;
-            else if (match_style == "move") rmove.Checked = true;
+            // InI 파일에서 사용할 Key 값들 정의
+            string key_main = InIKey.TopSection.GetDescription();
+            string key_follow = InIKey.FollowMethod.GetDescription();
+            string key_match = InIKey.MatchStyle.GetDescription();
+
+            IniFile ini = new IniFile();
+            if (File.Exists(INI.file_name))
+                ini.Load(INI.file_name);
+
+            string f_name = ini[key_main][key_follow].ToString();
+            string match_style = ini[key_main][key_match].ToString();
+
+            if (f_name == follow_video) rvideo.Checked = true;
+            else if (f_name == follow_smi) rsmi.Checked = true;
+            if (match_style == copy) rcopy.Checked = true;
+            else if (match_style == move) rmove.Checked = true;
+        }
+
+        // 컬럼 너비를 비율로 조정하는 메서드
+        private void adjust_column_widths(ListView list_view, int[] column_widths)
+        {
+            if (list_view.Columns.Count != column_widths.Length)
+                throw new ArgumentException("컬럼의 수와 비율 배열의 길이가 일치하지 않습니다.");
+
+            /*
+              리스트뷰 비율 전체 합이 100이 아닌 경우 Exception 발생
+              Linq를 활용해 배열 내부에서 마치 SQL 쿼리를 사용하듯이 Sum(합)을 구한다.
+              대충 배열 하나 하나 요소가 쿼리할 때 나오는 숫자 행 값들이라고 생각하면 될 거 같다.
+              Ex) column_widths.Sum() -> SELECT SUM(column_widths) FROM column_widths
+            */
+            if (column_widths.Sum() != 100)
+                throw new ArgumentException("컬럼 너비 비율의 합이 100이 아닙니다.");
+
+            int total_width = list_view.ClientSize.Width;
+            for (int i = 0; i < column_widths.Length; i++)
+                list_view.Columns[i].Width = (int)(total_width * column_widths[i] / 100.0);
         }
 
         private void init_listview()
@@ -54,6 +106,10 @@ namespace E.Z_Subtitles
             // 리스트뷰에 드래그 드롭을 허용으로 설정
             listview_video.AllowDrop = true;
             listview_sub.AllowDrop = true;
+
+            // 리스트뷰 컬럼 너비 비율 고정
+            adjust_column_widths(listview_video, new int[] { 50, 12, 38 }); // 총합은 100% 가 되도록 설정 해야 한다.
+            adjust_column_widths(listview_sub, new int[] { 50, 12, 38 });
 
             /*
               이벤트 핸들러 등록의 경우 윈폼 디자이너에서 대부분 수행했기에
@@ -118,9 +174,10 @@ namespace E.Z_Subtitles
                 return;
 
             string[] file_paths = (string[])e.Data.GetData(DataFormats.FileDrop); // 데이터를 가져오고 string[] 으로 변환
-            bool is_subtitle = (bool)listview.Tag; // Tag 속성에서 추가 정보를 가져옴
+            bool is_smi = listview == listview_sub; // 자막 리스트뷰인지 확인
 
-            SubTitle.file_add(file_paths, listview, is_subtitle);
+            // 이에 맞춰 파일 추가 함수 호출
+            SubTitle.file_add_to_list(file_paths, listview, is_smi);
         }
 
 
@@ -175,7 +232,8 @@ namespace E.Z_Subtitles
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    // 에러 메세지 출력
+                    MessageBox.Show(ex.Message, "알림", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -243,35 +301,58 @@ namespace E.Z_Subtitles
             System.Diagnostics.Process.Start("https://pgh268400.tistory.com/189");
         }
 
+        // 정렬 순서를 저장할 전역 변수
+        private Dictionary<int, bool> column_sort_order = new Dictionary<int, bool>();
+
         // 컬럼 클릭시 재정렬
         private void listview_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            ListView listView = sender as ListView;
+            ListView list_view = sender as ListView;
 
-            // 인자로 들어온 listview가 null이거나
-            // 리스트뷰 아이템이 1개 이하일 경우 함수 강제 종료
-            if (listView == null || listView.Items.Count <= 0)
+            // 인자로 들어온 list_view가 null이거나 리스트뷰 아이템이 1개 이하일 경우 함수 강제 종료
+            if (list_view == null || list_view.Items.Count <= 0)
                 return;
 
-            string[] file_paths = new string[listView.Items.Count];
+            // 클릭된 열의 인덱스
+            int column_index = e.Column;
 
-            for (int i = 0; i < listView.Items.Count; i++)
-                file_paths[i] = listView.Items[i].SubItems[2].Text;
-
-            Array.Sort(file_paths, NatSort.CompareNatural);
-
-            listView.Items.Clear();
-            foreach (string file_path in file_paths)
+            // 정렬 순서를 결정합니다.
+            if (!column_sort_order.ContainsKey(column_index))
             {
-                string file_name = Path.GetFileNameWithoutExtension(file_path);
-                string extension = Path.GetExtension(file_path);
-
-                ListViewItem item = new ListViewItem(file_name);
-                item.SubItems.Add(extension);
-                item.SubItems.Add(file_path);
-                listView.Items.Add(item);
+                // 처음 클릭 시 내림차순 정렬, 드래그 드롭으로 추가하면
+                // 자동으로 내림차순 정렬되기 때문이다.
+                column_sort_order[column_index] = false;
             }
+            else
+            {
+                // 클릭할 때마다 정렬 순서를 토글합니다.
+                column_sort_order[column_index] = !column_sort_order[column_index];
+            }
+
+            // ListViewItem을 포함하는 배열 생성
+            ListViewItem[] items = new ListViewItem[list_view.Items.Count];
+            list_view.Items.CopyTo(items, 0);
+
+            // 내추럴 정렬
+            if (column_sort_order[column_index])
+            {
+                // 오름차순 정렬
+                Array.Sort(items, (x, y) => NatSort.CompareNatural(x.SubItems[column_index].Text, y.SubItems[column_index].Text));
+            }
+            else
+            {
+                // 내림차순 정렬
+                Array.Sort(items, (x, y) => NatSort.CompareNatural(y.SubItems[column_index].Text, x.SubItems[column_index].Text));
+            }
+
+            // 정렬된 순서로 리스트뷰 아이템 재구성
+            list_view.BeginUpdate();
+            list_view.Items.Clear();
+            list_view.Items.AddRange(items);
+            list_view.EndUpdate();
         }
+
+
 
         // 더블클릭시 아이템 삭제
         private void listview_DoubleClick(object sender, EventArgs e)
