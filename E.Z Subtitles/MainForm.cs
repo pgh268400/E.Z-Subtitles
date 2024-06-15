@@ -18,9 +18,23 @@ namespace E.Z_Subtitles
             InitializeComponent();
         }
 
+        // 폼로드 이벤트
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // INI 파일 읽기
+            ini_read();
+
+            // 영상, 자막 리스트뷰 초기화
+            init_listview();
+        }
+
+
+
         // INI R/W
         private void ini_write()
         {
+            // :: INI 파일의 key / value 수정을 원하면 Enum 폴더 안의 InIEnum.cs 에 들어가서 Description 을 변경
+
             // 반드시 enum 값을 초기화 해줘야 하기 때문에 nullable한 enum을 사용해 null로 초기화.
             // 초기화를 하지 않으면 아래 GetDescription() 의 확장 메서드 컴파일이 되지 않는다.
             // 따라갈 파일 이름 : 영상 파일, 자막 파일
@@ -53,6 +67,8 @@ namespace E.Z_Subtitles
 
         private void ini_read()
         {
+            // :: INI 파일의 key / value 수정을 원하면 Enum 폴더 안의 InIEnum.cs 에 들어가서 Description 을 변경
+
             // enum의 description을 가져오기 위해 string 변수 선언
             string follow_video = FollowMethod.Video.GetDescription();
             string follow_smi = FollowMethod.Subtitle.GetDescription();
@@ -137,15 +153,40 @@ namespace E.Z_Subtitles
             listview_sub.DoubleClick += listview_DoubleClick;
         }
 
-        // 폼로드 이벤트 추가
-        private void Form1_Load(object sender, EventArgs e)
+        // 리스트뷰 아이템 변화시 라벨 업데이트 해주는 함수
+        private void update_count_label()
         {
-            // INI 파일 읽기
-            ini_read();
+            int video_count = listview_video.Items.Count;
+            int sub_count = listview_sub.Items.Count;
 
-            // 영상, 자막 리스트뷰 초기화
-            init_listview();
+            label_video_count.Text = $"영상 : {video_count}개";
+            label_sub_count.Text = $"자막 : {sub_count}개";
+
+            // 영상, 자막의 개수가 채워졌는지 체크
+            // 영상, 자막이 다 채워져야 유효성 검사를 시작.
+            if (video_count == 0 || sub_count == 0)
+            {
+                label_video_count.ForeColor = System.Drawing.Color.Black;
+                label_sub_count.ForeColor = System.Drawing.Color.Black;
+                return;
+            }
+
+            // 유효성 검사 : 만약 영상 파일과 자막 파일의 개수가 같다면
+            if (video_count == sub_count)
+            {
+                label_video_count.ForeColor = System.Drawing.Color.Blue;
+                label_sub_count.ForeColor = System.Drawing.Color.Blue;
+
+
+            }
+            // 그렇지 않다면
+            else
+            {
+                label_video_count.ForeColor = System.Drawing.Color.Red;
+                label_sub_count.ForeColor = System.Drawing.Color.Red;
+            }
         }
+
 
         // 드래그&드롭 파일 추가
 
@@ -178,6 +219,9 @@ namespace E.Z_Subtitles
 
             // 이에 맞춰 파일 추가 함수 호출
             SubTitle.file_add_to_list(file_paths, listview, is_smi);
+
+            // 라벨 업데이트
+            update_count_label();
         }
 
 
@@ -205,6 +249,8 @@ namespace E.Z_Subtitles
                 listview_video.Items.Clear();
                 listview_sub.Items.Clear();
             }
+
+            update_count_label();
         }
 
         //프로그램 Core - Match 버튼 구현
@@ -366,6 +412,8 @@ namespace E.Z_Subtitles
             {
                 listview.Items.Remove(item);
             }
+
+            update_count_label();
         }
     }
 }
