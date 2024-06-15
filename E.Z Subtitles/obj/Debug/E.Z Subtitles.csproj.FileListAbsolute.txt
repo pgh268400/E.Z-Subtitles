@@ -53,9 +53,9 @@ C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\bin\Debug\E.Z Subtitles.
 C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\bin\Debug\E.Z Subtitles.pdb
 C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.csproj.AssemblyReference.cache
 C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.csproj.SuggestedBindingRedirects.cache
-C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Debug\E.Z_Subtitles.Form1.resources
 C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Debug\E.Z_Subtitles.Properties.Resources.resources
 C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.csproj.GenerateResource.cache
 C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.csproj.CoreCompileInputs.cache
 C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.exe
 C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Debug\E.Z Subtitles.pdb
+C:\Users\pgh26\Source\Repos\E.Z-Subtitles\E.Z Subtitles\obj\Debug\E.Z_Subtitles.MainForm.resources

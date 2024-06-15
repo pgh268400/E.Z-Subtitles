@@ -21,29 +21,53 @@ namespace E.Z_Subtitles
         }
 
         //드래그 드롭 파일 추가 Core
-        public static void file_add(string[] files, ListView lv, bool isSMI)
+        public static void file_add(string[] files, ListView lv, bool is_smi)
         {
+            if (files.Length < 1) return; // 파일 목록이 없는 경우 함수 강제 종료
 
-            Array.Sort(files, NatSort.CompareNatural); //Natural Sort
-            if (files.Length >= 1) //1개 이상이면 
+            Array.Sort(files, NatSort.CompareNatural); // Natural Sort로 문자열 정렬
+
+            foreach (string file_path in files)
             {
-                foreach (string file_path in files)
+                bool directory_check = File.GetAttributes(file_path).HasFlag(FileAttributes.Directory);
+
+                if (directory_check == false) //파일만 추가함.
                 {
-                    bool directory_check = File.GetAttributes(file_path).HasFlag(FileAttributes.Directory);
+                    string filename = Path.GetFileNameWithoutExtension(file_path);
+                    string path = Path.GetExtension(file_path);
 
-                    if (directory_check == false) //파일만 추가함.
+                    if (is_smi == true & subtitle_check_ext(path) == true)
                     {
-                        string filename = Path.GetFileNameWithoutExtension(file_path);
-                        string path = Path.GetExtension(file_path);
+                        ListViewItem item = new ListViewItem(filename);
+                        item.SubItems.Add(path);
+                        item.SubItems.Add(file_path);
+                        lv.Items.Add(item);
+                    }
+                    else if (is_smi == false & subtitle_check_ext(path) == false)
+                    {
+                        ListViewItem item = new ListViewItem(filename);
+                        item.SubItems.Add(path);
+                        item.SubItems.Add(file_path);
+                        lv.Items.Add(item);
+                    }
+                }
+                else
+                {
+                    string[] directory_files = Directory.GetFiles(file_path); //디렉토리 파일 로드
+                    Array.Sort(directory_files, NatSort.CompareNatural); //Natural Sort
+                    foreach (string d_file_path in directory_files)
+                    {
 
-                        if (isSMI == true & subtitle_check_ext(path) == true)
+                        string filename = Path.GetFileNameWithoutExtension(d_file_path);
+                        string path = Path.GetExtension(d_file_path);
+                        if (is_smi == true & subtitle_check_ext(path) == true)
                         {
                             ListViewItem item = new ListViewItem(filename);
                             item.SubItems.Add(path);
-                            item.SubItems.Add(file_path);
+                            item.SubItems.Add(d_file_path);
                             lv.Items.Add(item);
                         }
-                        else if (isSMI == false & subtitle_check_ext(path) == false)
+                        else if (is_smi == false & subtitle_check_ext(path) == false)
                         {
                             ListViewItem item = new ListViewItem(filename);
                             item.SubItems.Add(path);
@@ -52,48 +76,22 @@ namespace E.Z_Subtitles
                         }
                     }
 
-                    else
-                    {
-                        string[] directory_files = Directory.GetFiles(file_path); //디렉토리 파일 로드
-                        Array.Sort(directory_files, NatSort.CompareNatural); //Natural Sort
-                        foreach (string d_file_path in directory_files)
-                        {
-
-                            string filename = Path.GetFileNameWithoutExtension(d_file_path);
-                            string path = Path.GetExtension(d_file_path);
-                            if (isSMI == true & subtitle_check_ext(path) == true)
-                            {
-                                ListViewItem item = new ListViewItem(filename);
-                                item.SubItems.Add(path);
-                                item.SubItems.Add(d_file_path);
-                                lv.Items.Add(item);
-                            }
-                            else if (isSMI == false & subtitle_check_ext(path) == false)
-                            {
-                                ListViewItem item = new ListViewItem(filename);
-                                item.SubItems.Add(path);
-                                item.SubItems.Add(file_path);
-                                lv.Items.Add(item);
-                            }
-                        }
-
-                    }
                 }
-                if (lv.Items.Count > 0)
-                {
-                    lv.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent); //Column Auto Width
-                }
+            }
+            if (lv.Items.Count > 0)
+            {
+                lv.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent); //Column Auto Width
             }
         }
 
         // 파일 이름 매칭 (Main 기능)
-        public static void match(ListView left_video_lv, ListView right_video_lv, bool isFollowVideoName, bool isCopy)
+        public static void match(ListView left_video_lv, ListView right_video_lv, bool is_follow_video_name, bool is_copy)
         {
             try
             {
                 for (int i = 0; i < left_video_lv.Items.Count; i++)
                 {
-                    if (isFollowVideoName) //따라갈 파일 이름 : 영상
+                    if (is_follow_video_name) //따라갈 파일 이름 : 영상
                     {
                         string video_path = left_video_lv.Items[i].SubItems[2].Text;
                         string smi_path = right_video_lv.Items[i].SubItems[2].Text;
@@ -101,7 +99,7 @@ namespace E.Z_Subtitles
                         string copy_path = Path.GetDirectoryName(video_path) + "\\" + Path.GetFileNameWithoutExtension(video_path) + Path.GetExtension(smi_path);
                         //MessageBox.Show(String.Format("{0} {1}", smi_path, copy_path));
 
-                        if (isCopy)
+                        if (is_copy)
                         {
                             if (smi_path == copy_path) File.Move(smi_path, copy_path); //동일경로면 Move로 옮김
                             else File.Copy(smi_path, copy_path); //자막 복사 모드
@@ -117,7 +115,7 @@ namespace E.Z_Subtitles
                         string copy_path = Path.GetDirectoryName(video_path) + "\\" + Path.GetFileNameWithoutExtension(smi_path) + Path.GetExtension(smi_path);
                         //MessageBox.Show(String.Format("{0} {1}", smi_path, copy_path));
 
-                        if (isCopy)
+                        if (is_copy)
                         {
                             if (smi_path == copy_path) File.Move(smi_path, copy_path); //동일경로면 Move로 옮김
                             else File.Copy(smi_path, copy_path); //자막 복사 모드

@@ -1,6 +1,6 @@
 ﻿namespace E.Z_Subtitles
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.listView1 = new System.Windows.Forms.ListView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.listview_video = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.listview_sub = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.button_match = new System.Windows.Forms.Button();
+            this.button_video_up = new System.Windows.Forms.Button();
+            this.button_video_down = new System.Windows.Forms.Button();
+            this.button_sub_down = new System.Windows.Forms.Button();
+            this.button_sub_up = new System.Windows.Forms.Button();
+            this.button_sub_clear = new System.Windows.Forms.Button();
+            this.button_video_clear = new System.Windows.Forms.Button();
+            this.button_all_clear = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.rvideo = new System.Windows.Forms.RadioButton();
             this.rsmi = new System.Windows.Forms.RadioButton();
@@ -55,28 +55,28 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button9 = new System.Windows.Forms.Button();
+            this.button_how_to = new System.Windows.Forms.Button();
+            this.label_video_count = new System.Windows.Forms.Label();
+            this.label_sub_count = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listView1
+            // listview_video
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listview_video.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader3,
             this.columnHeader5});
-            this.listView1.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 12);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(455, 264);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListView1_ColumnClick);
-            this.listView1.DoubleClick += new System.EventHandler(this.ListView1_DoubleClick);
+            this.listview_video.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.listview_video.HideSelection = false;
+            this.listview_video.Location = new System.Drawing.Point(12, 12);
+            this.listview_video.Name = "listview_video";
+            this.listview_video.Size = new System.Drawing.Size(455, 264);
+            this.listview_video.TabIndex = 0;
+            this.listview_video.UseCompatibleStateImageBehavior = false;
+            this.listview_video.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -90,22 +90,20 @@
             // 
             this.columnHeader5.Text = "경로";
             // 
-            // listView2
+            // listview_sub
             // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listview_sub.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2,
             this.columnHeader4,
             this.columnHeader6});
-            this.listView2.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(494, 12);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(455, 264);
-            this.listView2.TabIndex = 1;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            this.listView2.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListView2_ColumnClick);
-            this.listView2.DoubleClick += new System.EventHandler(this.ListView2_DoubleClick);
+            this.listview_sub.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.listview_sub.HideSelection = false;
+            this.listview_sub.Location = new System.Drawing.Point(494, 12);
+            this.listview_sub.Name = "listview_sub";
+            this.listview_sub.Size = new System.Drawing.Size(455, 264);
+            this.listview_sub.TabIndex = 1;
+            this.listview_sub.UseCompatibleStateImageBehavior = false;
+            this.listview_sub.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader2
             // 
@@ -119,94 +117,94 @@
             // 
             this.columnHeader6.Text = "경로";
             // 
-            // button1
+            // button_match
             // 
-            this.button1.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(825, 316);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 49);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Match";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_match.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_match.ForeColor = System.Drawing.Color.Red;
+            this.button_match.Location = new System.Drawing.Point(825, 316);
+            this.button_match.Name = "button_match";
+            this.button_match.Size = new System.Drawing.Size(119, 49);
+            this.button_match.TabIndex = 2;
+            this.button_match.Text = "Match";
+            this.button_match.UseVisualStyleBackColor = true;
+            this.button_match.Click += new System.EventHandler(this.button_match_Click);
             // 
-            // button2
+            // button_video_up
             // 
-            this.button2.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(401, 282);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(30, 30);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "▲";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button_video_up.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_video_up.Location = new System.Drawing.Point(401, 282);
+            this.button_video_up.Name = "button_video_up";
+            this.button_video_up.Size = new System.Drawing.Size(30, 30);
+            this.button_video_up.TabIndex = 3;
+            this.button_video_up.Text = "▲";
+            this.button_video_up.UseVisualStyleBackColor = true;
+            this.button_video_up.Click += new System.EventHandler(this.button_move_Click);
             // 
-            // button3
+            // button_video_down
             // 
-            this.button3.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Location = new System.Drawing.Point(437, 282);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(30, 30);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "▼";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button_video_down.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_video_down.Location = new System.Drawing.Point(437, 282);
+            this.button_video_down.Name = "button_video_down";
+            this.button_video_down.Size = new System.Drawing.Size(30, 30);
+            this.button_video_down.TabIndex = 4;
+            this.button_video_down.Text = "▼";
+            this.button_video_down.UseVisualStyleBackColor = true;
+            this.button_video_down.Click += new System.EventHandler(this.button_move_Click);
             // 
-            // button5
+            // button_sub_down
             // 
-            this.button5.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button5.Location = new System.Drawing.Point(914, 280);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(30, 30);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "▼";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button_sub_down.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_sub_down.Location = new System.Drawing.Point(914, 280);
+            this.button_sub_down.Name = "button_sub_down";
+            this.button_sub_down.Size = new System.Drawing.Size(30, 30);
+            this.button_sub_down.TabIndex = 6;
+            this.button_sub_down.Text = "▼";
+            this.button_sub_down.UseVisualStyleBackColor = true;
+            this.button_sub_down.Click += new System.EventHandler(this.button_move_Click);
             // 
-            // button4
+            // button_sub_up
             // 
-            this.button4.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button4.Location = new System.Drawing.Point(878, 280);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(30, 30);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "▲";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button_sub_up.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_sub_up.Location = new System.Drawing.Point(878, 280);
+            this.button_sub_up.Name = "button_sub_up";
+            this.button_sub_up.Size = new System.Drawing.Size(30, 30);
+            this.button_sub_up.TabIndex = 5;
+            this.button_sub_up.Text = "▲";
+            this.button_sub_up.UseVisualStyleBackColor = true;
+            this.button_sub_up.Click += new System.EventHandler(this.button_move_Click);
             // 
-            // button6
+            // button_sub_clear
             // 
-            this.button6.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button6.Location = new System.Drawing.Point(489, 282);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(58, 23);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "C";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button_sub_clear.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_sub_clear.Location = new System.Drawing.Point(489, 282);
+            this.button_sub_clear.Name = "button_sub_clear";
+            this.button_sub_clear.Size = new System.Drawing.Size(58, 23);
+            this.button_sub_clear.TabIndex = 7;
+            this.button_sub_clear.Text = "C";
+            this.button_sub_clear.UseVisualStyleBackColor = true;
+            this.button_sub_clear.Click += new System.EventHandler(this.clear_list_view_Click);
             // 
-            // button7
+            // button_video_clear
             // 
-            this.button7.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button7.Location = new System.Drawing.Point(12, 282);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(58, 23);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "C";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button_video_clear.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_video_clear.Location = new System.Drawing.Point(12, 282);
+            this.button_video_clear.Name = "button_video_clear";
+            this.button_video_clear.Size = new System.Drawing.Size(58, 23);
+            this.button_video_clear.TabIndex = 8;
+            this.button_video_clear.Text = "C";
+            this.button_video_clear.UseVisualStyleBackColor = true;
+            this.button_video_clear.Click += new System.EventHandler(this.clear_list_view_Click);
             // 
-            // button8
+            // button_all_clear
             // 
-            this.button8.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button8.Location = new System.Drawing.Point(705, 316);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(114, 49);
-            this.button8.TabIndex = 9;
-            this.button8.Text = "All Clear";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button_all_clear.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_all_clear.Location = new System.Drawing.Point(705, 316);
+            this.button_all_clear.Name = "button_all_clear";
+            this.button_all_clear.Size = new System.Drawing.Size(114, 49);
+            this.button_all_clear.TabIndex = 9;
+            this.button_all_clear.Text = "All Clear";
+            this.button_all_clear.UseVisualStyleBackColor = true;
+            this.button_all_clear.Click += new System.EventHandler(this.clear_list_view_Click);
             // 
             // label1
             // 
@@ -217,7 +215,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(272, 14);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Copyright 2021. KRFile(pgh268400@naver.com)";
+            this.label1.Text = "Copyright 2024. KRFile(pgh268400@naver.com)";
             // 
             // rvideo
             // 
@@ -231,7 +229,7 @@
             this.rvideo.TabStop = true;
             this.rvideo.Text = "영상파일";
             this.rvideo.UseVisualStyleBackColor = true;
-            this.rvideo.CheckedChanged += new System.EventHandler(this.Rvideo_CheckedChanged);
+            this.rvideo.CheckedChanged += new System.EventHandler(this.radio_CheckedChanged);
             // 
             // rsmi
             // 
@@ -243,7 +241,7 @@
             this.rsmi.TabIndex = 12;
             this.rsmi.Text = "자막파일";
             this.rsmi.UseVisualStyleBackColor = true;
-            this.rsmi.CheckedChanged += new System.EventHandler(this.Rsmi_CheckedChanged);
+            this.rsmi.CheckedChanged += new System.EventHandler(this.radio_CheckedChanged);
             // 
             // panel1
             // 
@@ -252,7 +250,7 @@
             this.panel1.Location = new System.Drawing.Point(120, 47);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(209, 19);
+            this.panel1.Size = new System.Drawing.Size(209, 21);
             this.panel1.TabIndex = 13;
             // 
             // panel2
@@ -277,7 +275,7 @@
             this.rcopy.TabStop = true;
             this.rcopy.Text = "복사";
             this.rcopy.UseVisualStyleBackColor = true;
-            this.rcopy.CheckedChanged += new System.EventHandler(this.Rcopy_CheckedChanged);
+            this.rcopy.CheckedChanged += new System.EventHandler(this.radio_CheckedChanged);
             // 
             // rmove
             // 
@@ -289,7 +287,7 @@
             this.rmove.TabIndex = 12;
             this.rmove.Text = "이동";
             this.rmove.UseVisualStyleBackColor = true;
-            this.rmove.CheckedChanged += new System.EventHandler(this.Rmove_CheckedChanged);
+            this.rmove.CheckedChanged += new System.EventHandler(this.radio_CheckedChanged);
             // 
             // label2
             // 
@@ -325,41 +323,63 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "설정";
             // 
-            // button9
+            // button_how_to
             // 
-            this.button9.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button9.Location = new System.Drawing.Point(586, 316);
-            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(114, 50);
-            this.button9.TabIndex = 18;
-            this.button9.Text = "How to?";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.Button9_Click);
+            this.button_how_to.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_how_to.Location = new System.Drawing.Point(586, 316);
+            this.button_how_to.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_how_to.Name = "button_how_to";
+            this.button_how_to.Size = new System.Drawing.Size(114, 50);
+            this.button_how_to.TabIndex = 18;
+            this.button_how_to.Text = "How to?";
+            this.button_how_to.UseVisualStyleBackColor = true;
+            this.button_how_to.Click += new System.EventHandler(this.button_how_to_Click);
             // 
-            // Form1
+            // label_video_count
+            // 
+            this.label_video_count.AutoSize = true;
+            this.label_video_count.Font = new System.Drawing.Font("나눔고딕", 10F, System.Drawing.FontStyle.Bold);
+            this.label_video_count.Location = new System.Drawing.Point(179, 288);
+            this.label_video_count.Name = "label_video_count";
+            this.label_video_count.Size = new System.Drawing.Size(66, 16);
+            this.label_video_count.TabIndex = 19;
+            this.label_video_count.Text = "영상 : 0개";
+            // 
+            // label_sub_count
+            // 
+            this.label_sub_count.AutoSize = true;
+            this.label_sub_count.Font = new System.Drawing.Font("나눔고딕", 10F, System.Drawing.FontStyle.Bold);
+            this.label_sub_count.Location = new System.Drawing.Point(675, 287);
+            this.label_sub_count.Name = "label_sub_count";
+            this.label_sub_count.Size = new System.Drawing.Size(66, 16);
+            this.label_sub_count.TabIndex = 20;
+            this.label_sub_count.Text = "자막 : 0개";
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 404);
-            this.Controls.Add(this.button9);
+            this.Controls.Add(this.label_sub_count);
+            this.Controls.Add(this.label_video_count);
+            this.Controls.Add(this.button_how_to);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.button_all_clear);
+            this.Controls.Add(this.button_video_clear);
+            this.Controls.Add(this.button_sub_clear);
+            this.Controls.Add(this.button_sub_down);
+            this.Controls.Add(this.button_sub_up);
+            this.Controls.Add(this.button_video_down);
+            this.Controls.Add(this.button_video_up);
+            this.Controls.Add(this.button_match);
+            this.Controls.Add(this.listview_sub);
+            this.Controls.Add(this.listview_video);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form1";
-            this.Text = "E.Z Subtitles v3";
+            this.Name = "MainForm";
+            this.Text = "E.Z Subtitles v4";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -374,16 +394,16 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.ListView listview_video;
+        private System.Windows.Forms.ListView listview_sub;
+        private System.Windows.Forms.Button button_match;
+        private System.Windows.Forms.Button button_video_up;
+        private System.Windows.Forms.Button button_video_down;
+        private System.Windows.Forms.Button button_sub_down;
+        private System.Windows.Forms.Button button_sub_up;
+        private System.Windows.Forms.Button button_sub_clear;
+        private System.Windows.Forms.Button button_video_clear;
+        private System.Windows.Forms.Button button_all_clear;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -400,7 +420,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button_how_to;
+        private System.Windows.Forms.Label label_video_count;
+        private System.Windows.Forms.Label label_sub_count;
     }
 }
 
