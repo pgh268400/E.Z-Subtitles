@@ -1,5 +1,5 @@
 # E.Z-Subtitles
-![image](https://user-images.githubusercontent.com/31213158/132698668-6580632e-ce6d-4672-9424-dd41f87b4c57.png)
+![image](https://github.com/pgh268400/E.Z-Subtitles/assets/31213158/f372dc3a-3e59-4ea4-9f6e-96d01294e0e6)
 
 미드/영화/애니메이션 자막 매칭 프로그램
 
